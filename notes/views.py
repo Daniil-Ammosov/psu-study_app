@@ -34,7 +34,8 @@ class NoteViewSet(ModelViewSet):
     # permission_classes = [IsAuthenticatedOrReadOnly, ]
 
     def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset().filter(author=request.user.id)
+        # queryset = self.get_queryset().filter(author=request.user.id)
+        queryset = self.get_queryset()
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
