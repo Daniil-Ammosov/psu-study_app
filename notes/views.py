@@ -31,7 +31,7 @@ class NoteViewSet(ModelViewSet):
     queryset = Note.objects.all()
     serializer_class = NoteDetailSerializer
     # authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticatedOrReadOnly, ]
+    # permission_classes = [IsAuthenticatedOrReadOnly, ]
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset().filter(author=request.user.id)
